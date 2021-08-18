@@ -1,20 +1,20 @@
-# {{TITLE: a human-readable title for this RFC!}}
+# Adding support to source a .env file for environment variables
 
 ## Summary
 
-{{A concise, one-paragraph description of the change.}}
+To consume env-cmd (https://www.npmjs.com/package/env-cmd) and activate it via cmd-line-switch -e
 
 ## Motivation
 
-{{Why are we doing this? What pain points does this resolve? What use cases does it support? What is the expected outcome? Use real, concrete examples to make your case!}}
+To be able to add environment variables to the execution environment via a .env file
 
 ## Detailed Explanation
 
-{{Describe the expected changes in detail, }}
+when the user adds the cmd-line-switch -e the .env file is parsed for variables to add to the executiuon enviroment for consumption by scripts and programs launched via npx
 
 ## Rationale and Alternatives
 
-{{Discuss 2-3 different alternative solutions that were considered. This is required, even if it seems like a stretch. Then explain why this is the best choice out of available ones.}}
+I tried executing cmd-env before npx and while the variables seemed available to shell commands they aren't passed to code executed by npx.  I think the npx spawns an execution environment that doesn't include env vars sourced since the shell was started (I'm on a Mac) 
 
 ## Implementation
 
@@ -24,7 +24,7 @@
 
 ## Prior Art
 
-{{This section is optional if there are no actual prior examples in other tools}}
+see emv-cmd (https://www.npmjs.com/package/env-cmd)
 
 {{Discuss existing examples of this change in other tools, and how they've addressed various concerns discussed above, and what the effect of those decisions has been}}
 
